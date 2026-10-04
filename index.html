@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
     <!-- Navigation -->
@@ -31,7 +31,7 @@
                 <a href="#projets" class="nav-link">Projets</a>
                 <a href="#apropos" class="nav-link">À Propos</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <button class="btn-nav">Devis Gratuit</button>
+                <button class="btn-nav" data-target="#contact">Devis Gratuit</button>
             </div>
             
             <div class="nav-toggle" id="nav-toggle">
@@ -56,7 +56,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
-                    <span class="badge-text">🏆 Entreprise Certifiée</span>
+                    <span class="badge-text"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> Entreprise Certifiée</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="title-line">Construisons</span>
@@ -82,38 +82,38 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" data-target="#projets">
                         <span class="btn-text">Nos Projets</span>
                         <span class="btn-icon">→</span>
                     </button>
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-secondary" data-target="#contact">
                         <span class="btn-text">Devis Gratuit</span>
-                        <span class="btn-icon">📋</span>
+                        <span class="btn-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg></span>
                     </button>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="hero-cards">
                     <div class="hero-card card-1">
-                        <div class="card-icon">🏠</div>
+                        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
                         <div class="card-text">Construction</div>
                     </div>
                     <div class="hero-card card-2">
-                        <div class="card-icon">🔨</div>
+                        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg></div>
                         <div class="card-text">Rénovation</div>
                     </div>
                     <div class="hero-card card-3">
-                        <div class="card-icon">⚡</div>
+                        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                         <div class="card-text">Électricité</div>
                     </div>
                     <div class="hero-card card-4">
-                        <div class="card-icon">🚿</div>
+                        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.7s-6 6.3-6 11a6 6 0 0 0 12 0c0-4.7-6-11-6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
                         <div class="card-text">Plomberie</div>
                     </div>
                 </div>
                 <div class="hero-main-image">
                     <div class="image-container">
-                        <div class="construction-icon">🏗️</div>
+                        <div class="construction-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 21V7M9 21V7"/><path d="M6 10l3 3M9 10l-3 3M6 16l3 3M9 16l-3 3"/><path d="M2.5 7h19"/><path d="M6 7l1.5-4L9 7"/><path d="M7.5 3 21.5 7M7.5 3 2.5 7"/><path d="M2.5 7v2.5H6"/><path d="M18 7v6"/><path d="M18 13v1.2a1.4 1.4 0 1 1-1.4 1.4"/><path d="M4 21h7"/></svg></div>
                         <div class="pulse-ring"></div>
                         <div class="pulse-ring ring-2"></div>
                     </div>
@@ -128,9 +128,9 @@
                 <div class="scroll-arrow"></div>
             </div>
             <div class="social-links">
-                <a href="#" class="social-link">📘</a>
-                <a href="#" class="social-link">📷</a>
-                <a href="#" class="social-link">🐦</a>
+                <a href="#" class="social-link" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="#" class="social-link" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+                <a href="#" class="social-link" aria-label="X (Twitter)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h4.5L20 20h-4.5z"/><path d="M20 4l-6.8 6.8M4 20l6.8-6.8"/></svg></a>
             </div>
         </div>
     </section>
@@ -145,37 +145,37 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
                     <h3>Construction</h3>
                     <p>Maisons individuelles, bâtiments commerciaux et industriels</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🔨</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg></div>
                     <h3>Rénovation</h3>
                     <p>Rénovation complète et partielle de bâtiments existants</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                     <h3>Électricité</h3>
                     <p>Installations électriques et systèmes domotiques</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🚿</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.7s-6 6.3-6 11a6 6 0 0 0 12 0c0-4.7-6-11-6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
                     <h3>Plomberie</h3>
                     <p>Installation et maintenance de systèmes sanitaires</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="15" height="6" rx="2"/><path d="M18 6h3v5h-9v3"/><rect x="10" y="14" width="4" height="7" rx="1"/></svg></div>
                     <h3>Finitions</h3>
                     <p>Peinture, carrelage et aménagements intérieurs</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🌱</div>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
                     <h3>Écologique</h3>
                     <p>Solutions durables et respectueuses de l'environnement</p>
                 </div>
@@ -194,7 +194,7 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="image-placeholder">🏢</div>
+                        <div class="image-placeholder"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></div>
                     </div>
                     <div class="project-content">
                         <h3>Immeuble Résidentiel</h3>
@@ -205,7 +205,7 @@
                 
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="image-placeholder">🏭</div>
+                        <div class="image-placeholder"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg></div>
                     </div>
                     <div class="project-content">
                         <h3>Usine Moderne</h3>
@@ -216,7 +216,7 @@
                 
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="image-placeholder">🏡</div>
+                        <div class="image-placeholder"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 11 9 5l7 6"/><path d="M4 10v11h10V10"/><path d="M7.5 21v-5h3v5"/><path d="M19 21v-5"/><circle cx="19" cy="12" r="3.2"/></svg></div>
                     </div>
                     <div class="project-content">
                         <h3>Maison Familiale</h3>
@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder">👷‍♂️</div>
+                    <div class="image-placeholder"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
                 </div>
             </div>
         </div>
@@ -272,7 +272,7 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
                         <div>
                             <h4>Adresse</h4>
                             <p>123 Avenue de la Construction<br>75001 Paris, France</p>
@@ -280,7 +280,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                         <div>
                             <h4>Téléphone</h4>
                             <p>+33 1 23 45 67 89</p>
@@ -288,7 +288,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
                         <div>
                             <h4>Email</h4>
                             <p>contact@btppro.fr</p>
@@ -336,9 +336,9 @@
                 
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>📞 +33 1 23 45 67 89</p>
-                    <p>✉️ contact@btppro.fr</p>
-                    <p>📍 123 Avenue de la Construction<br>75001 Paris</p>
+                    <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +33 1 23 45 67 89</p>
+                    <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> contact@btppro.fr</p>
+                    <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> 123 Avenue de la Construction<br>75001 Paris</p>
                 </div>
             </div>
             
@@ -349,6 +349,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

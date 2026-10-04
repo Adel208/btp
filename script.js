@@ -92,6 +92,15 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.set('.hero-interactive', { opacity: 0, y: 30 });
 });
 
+// Défilement fluide vers une section, sous la barre de navigation (70px).
+// Natif : le plugin ScrollToPlugin de GSAP n'est pas chargé sur la page.
+function scrollToSection(selector) {
+    const target = document.querySelector(selector);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top, behavior: 'smooth' });
+}
+
 // Navigation interactive
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('nav-toggle');
@@ -135,20 +144,13 @@ navLinks.forEach(link => {
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            gsap.to(window, {
-                duration: 1,
-                scrollTo: {
-                    y: targetSection,
-                    offsetY: 70
-                },
-                ease: 'power2.inOut'
-            });
-        }
+        scrollToSection(link.getAttribute('href'));
     });
+});
+
+// Boutons « Nos Projets » et « Devis Gratuit »
+document.querySelectorAll('[data-target]').forEach(button => {
+    button.addEventListener('click', () => scrollToSection(button.dataset.target));
 });
 
 // Animations au scroll avec ScrollTrigger
@@ -199,24 +201,30 @@ gsap.utils.toArray('.project-card').forEach((card, index) => {
 });
 
 // Animation des statistiques
+// Compteur qui garde le suffixe du texte d'origine (« 500+ » reste « 500+ »)
+function counterTween(number, vars) {
+    const text = number.textContent.trim();
+    const finalNumber = parseInt(text, 10);
+    const suffix = text.replace(/^\d+/, '');
+    const counter = { value: 0 };
+    number.textContent = `0${suffix}`;
+    return gsap.to(counter, {
+        value: finalNumber,
+        duration: 2,
+        ease: 'power2.out',
+        onUpdate: () => { number.textContent = `${Math.round(counter.value)}${suffix}`; },
+        ...vars
+    });
+}
+
 gsap.utils.toArray('.stat').forEach((stat, index) => {
-    const number = stat.querySelector('h3');
-    const finalNumber = parseInt(number.textContent);
-    
-    gsap.fromTo(number,
-        { textContent: 0 },
-        {
-            textContent: finalNumber,
-            duration: 2,
-            ease: 'power2.out',
-            snap: { textContent: 1 },
-            scrollTrigger: {
-                trigger: stat,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            }
+    counterTween(stat.querySelector('h3'), {
+        scrollTrigger: {
+            trigger: stat,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
         }
-    );
+    });
 });
 
 // Animation des éléments de contact
@@ -266,8 +274,10 @@ gsap.fromTo('.contact-form',
 // Animation des sections
 gsap.utils.toArray('section').forEach((section, index) => {
     if (index === 0) return; // Skip hero section
-    
-    gsap.fromTo(section.querySelector('.section-header'),
+    const header = section.querySelector('.section-header');
+    if (!header) return; // La section À propos n'a pas d'en-tête
+
+    gsap.fromTo(header,
         {
             opacity: 0,
             y: 30
@@ -287,8 +297,8 @@ gsap.utils.toArray('section').forEach((section, index) => {
 });
 
 // Effet parallax sur l'image hero
-gsap.to('.hero-image', {
-    yPercent: -50,
+gsap.to('.hero-visual', {
+    yPercent: -20,
     ease: 'none',
     scrollTrigger: {
         trigger: '.hero',
@@ -340,19 +350,7 @@ document.querySelectorAll('.hero-card').forEach(card => {
 
 // Animation des statistiques hero
 gsap.utils.toArray('.stat-item').forEach((stat, index) => {
-    const number = stat.querySelector('.stat-number');
-    const finalNumber = parseInt(number.textContent);
-    
-    gsap.fromTo(number,
-        { textContent: 0 },
-        {
-            textContent: finalNumber,
-            duration: 2,
-            ease: 'power2.out',
-            snap: { textContent: 1 },
-            delay: 1 + (index * 0.2)
-        }
-    );
+    counterTween(stat.querySelector('.stat-number'), { delay: 1 + (index * 0.2) });
 });
 
 // Animation des liens sociaux
@@ -378,14 +376,7 @@ document.querySelectorAll('.social-link').forEach(link => {
 
 // Animation du scroll indicator
 document.querySelector('.scroll-indicator').addEventListener('click', () => {
-    gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-            y: '#services',
-            offsetY: 70
-        },
-        ease: 'power2.inOut'
-    });
+    scrollToSection('#services');
 });
 
 // Animation des cartes au hover
